@@ -1,0 +1,32 @@
+{
+  "userInfo": [
+    {
+      "id": 1,
+      "name": "deven sureja",
+      "email": "d@gmail.com",
+      "password": "222222",
+      "birthdate": "2002-02-14"
+    },
+    {
+      "id": 2,
+      "name": "ddjkl",
+      "email": "sdfghjkl",
+      "password": "666666",
+      "birthdate": "2002-03-03",
+      "loginTime": "3/3/2023  3:46 PM"
+    }
+  ],
+  "signupadmin": [
+    {
+      "fullname": "deven sureja ",
+      "email": "devensurejads@gmail.com",
+      "password": "111111",
+      "age": "21",
+      "mobile": 12345678,
+      "id": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
