@@ -17,14 +17,7 @@
     }
   ],
   "signupadmin": [
-    {
-      "fullname": "deven sureja ",
-      "email": "devensurejads@gmail.com",
-      "password": "111111",
-      "age": "21",
-      "mobile": 12345678,
-      "id": 1
-    }
+   
   ],
   "profile": {
     "name": "typicode"

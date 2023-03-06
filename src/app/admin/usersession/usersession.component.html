@@ -1,3 +1,29 @@
-<p>usersession works!</p>
-<app-leftbar></app-leftbar>
+<div class="main">
+    <div class="data">
+      <br>
+      <fieldset>
+        <legend>
+          <h2>USERS SESSION LOGS</h2>
+        </legend>
+        <table border="1" id="tab" class="list">
+          <thead>
+            <tr>
+              <th class=".col">Name</th>
+              <th class=".col">Login Date And Time</th>
+              <th class=".col">Logout Date And Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of userData">
+              <td>{{ user.name }}</td>
+              <td>{{ user.loginTime ? user.loginTime : 'Not Login' }}</td>
+              <td>{{ user.logoutTime ? user.logoutTime : 'Not Logout' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </fieldset>
+    </div>
+  </div>
+  
 
+<app-leftbar></app-leftbar>

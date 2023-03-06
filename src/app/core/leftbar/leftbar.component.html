@@ -2,24 +2,24 @@
     <nav class="nav">
         <div class="nav-upper-options">
 
-            <div class="nav-option">						
-                <h3>Hello ,</h3>
-                <h3 class = 'user_name'></h3>
+            <div class="nav-option" *ngFor="let user of userData">						
+                <h3>Hello ,<h3>{{user.name}}</h3></h3>
+                
             </div>
 
-            <div class="nav-option option1" >						
+            <div class="nav-option option1" (click)="todashboard()" >						
                 <h3> Dashboard</h3>
             </div>
 
-            <div class="option2 nav-option" >					
+            <div class="option2 nav-option" (click)="touser()" >					
                 <h3> Users</h3>
             </div>
 
-            <div class="nav-option option3">
+            <div class="nav-option option3" (click)="tosession()">
                 <h3> Login Session</h3>
             </div>
 
-            <div class="nav-option logout" >				
+            <div class="nav-option logout"(click)="tologout()" >				
                 <h3>Logout</h3>
             </div>
         </div>
