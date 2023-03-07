@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import{ FormBuilder,FormGroup } from '@angular/forms';
+import{ FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit{
         constructor(private formBuilder : FormBuilder,private http : HttpClient,private router:Router) { }
         ngOnInit(): void {
           this.loginForm = this.formBuilder.group({
-            email:[''],
-            password:['']
+            email:['',Validators.required],
+            password:['',Validators.required]
           })
         }
 
@@ -23,11 +23,12 @@ export class LoginComponent implements OnInit{
           this.http.get<any>("http://localhost:3000/signupadmin").subscribe(res=>{
             const user = res.find((a:any)=>{
                 return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password
-            });
+            });console.log(user)
             if(user){
               alert('login success !!');
               this.loginForm.reset();
-              this.router.navigate(['admin/user']);
+              localStorage.setItem("adminRegisteredData",JSON.stringify(user)) ;
+              this.router.navigate(['admin/dashboard']);
               
             }else{
           const d = new Date();
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit{
 
           this.http.get<any>("http://localhost:3000/userInfo")
           .subscribe((data: any[]) => {
+
             const userToUpdate = data.find(element => element.email === this.loginForm.value.email);
             if (userToUpdate) {
               userToUpdate.loginTime = userLoginDataTime;
@@ -59,28 +61,27 @@ export class LoginComponent implements OnInit{
                 
                 if (users) {
                   const birthdate = users.birthdate;
+                  const mail = users.email;
                   console.log(birthdate);
                   const today = new Date();
                   const birthday = new Date(birthdate);
                   console.log(birthday);
                   if (today.getDate() === birthday.getDate() && today.getMonth() === birthday.getMonth()) {
+                    localStorage.setItem('email',mail);
                     this.router.navigate(['subuser/subuserdashboard']);
+                    localStorage.setItem("userRegisteredData",JSON.stringify(users)) ;
+ 
+                   
                   } else {
                     this.router.navigate(['subuser/subuser2dashboard']);
+                    localStorage.setItem('email',mail);   
+                    localStorage.setItem("userRegisteredData",JSON.stringify(users)) ;
+
                   }
                 }
               })
             }
           })
         }
-   
 }
     
-
-
-
-
-
-
-
-// this.LoginTime(this.loginForm.value.email);

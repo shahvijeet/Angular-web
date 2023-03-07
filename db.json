@@ -17,7 +17,22 @@
     }
   ],
   "signupadmin": [
-   
+    {
+      "fullname": "asdf",
+      "email": "qwefds",
+      "password": "1111",
+      "age": "21",
+      "mobile": 1234567890,
+      "id": 1
+    },
+    {
+      "fullname": "vijeet",
+      "email": "vijeetshah1408@gmail.com",
+      "password": "123456",
+      "age": "21",
+      "mobile": 9924559358,
+      "id": 2
+    }
   ],
   "profile": {
     "name": "typicode"
